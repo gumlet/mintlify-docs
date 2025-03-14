@@ -1,0 +1,159 @@
+---
+title: "FAQs"
+description: "Frequently asked questions for all your video needs"
+---
+
+### How do I download my original videos?
+
+You can download the original video from the video settings page. Go to **Video CMS** and click on the video you want to download. You will see a menu on the right-side panel named **Download**. Click on the `Download Video button` to download the original.
+
+### Does Gumlet store my data?
+
+Gumlet stores video views and other analytics data to provide you detailed analysis of how your videos are doing. At Gumlet, we believe privacy is the most important, so you can disable collecting analytics data in the collection settings [here](https://dashboard.gumlet.com/video/collections).
+
+### How to add subtitles to videos?
+
+There are two ways to add subtitles to videos in Gumlet.
+
+1. Select subtitle languages in the processing settings to use AI to generate subtitles for new videos. Go to video processing settings [here](https://dashboard.gumlet.com/video/manage?tab=edit_process).
+2. You can go to the video settings page, and upload SRT files to add subtitles manually to your videos.
+
+Learn more about adding subtitles [here](/docs/video-engagement#subtitles).
+
+### Can I embed videos on third-party LMS and platforms?
+
+Yes, you can Embed videos on any platform that supports embedding. Gumlet provides iframe (HTML) code, HLS (M3U8) URL, MP4 URL, and DASH (MPD) URL. Gumlet also supports Embed.ly, OEmbed, and Iframely. Gumlet can be used with Circle.so, WordPress, Medium, Thinkific, Moodle, Salesforce, Webflow, and custom-designed frameworks & tools.
+
+### How can I change player settings?
+
+You can customize the player and settings as per your needs. Gumlet supports custom colors, logos, player settings like disabling/enabling controls, and more. It may take 10-15 minutes to reflect the updated settings.
+
+### How to move videos from Vimeo to Gumlet without downloading and uploading manually?
+
+To migrate videos from Vimeo to Gumlet, we built an integration. The integration will allow you to select videos you want to migrate to Gumlet. This won't need additional efforts like downloading from Vimeo and uploading to Gumlet. Just select files and click on Import Videos. You will be notified once the upload is completed. Here is the guide - [Migrate from Vimeo](/docs/import-from-vimeo).
+
+### How do I allow users to download videos?
+
+You can easily allow your users to download videos. First, you need to enable MP4 processing on *Processing Settings*. Once enabled, you can visit the Player Settings page and then enable *Show download button*.
+
+### How can I prevent screenshots and screen recording when DRM is enabled?
+
+Ensure you have enabled DRM in your video profile settings to prevent screenshots and screen recording. Please check this: [https://gumlet.tv/watch/65dedb6f20c39971cd19c1b8/](https://gumlet.tv/watch/65dedb6f20c39971cd19c1b8/)
+
+### How do we implement AVOD in the Gumlet video?
+
+The AVOD can be implemented with the help of a VAST Tag URL. Please refer to our documentation: [VAST Tag Documentation](/docs/edit-collection#vast-tag)
+
+### Is there a feature similar to YouTube that suggests related videos to play at the end of a video?
+
+Currently, we do not have a built-in feature that provides algorithmic suggestions for related videos at the end of a video. Please upvote here [https://feedback.gumlet.com/feature-requests/p/related-videos](https://feedback.gumlet.com/feature-requests/p/related-videos)
+
+### If I add a user with the same email to different channels, does that count as one?
+
+Yes. If the same user (same email) is added to multiple channels, it will only count as one subscriber. If user A is added to Channel P and Channel Q, it will only count as 1 user, not two.
+
+### I updated my video settings but these are not reflecting on the actual video. Why?
+
+We cache most of the video-related information for faster responses on the Internet. This cache usually takes 10-15 minutes to clear, and the new data will appear. If your recent changes are not reflecting, we request you wait for 15 minutes before raising a support ticket.
+
+### How can I download multiple videos with one click?
+
+To download multiple videos in one click, you need to use API.
+
+Please use list asset API [https://docs.gumlet.com/reference/list-assets](/reference/list-assets) and get mp4 URLs and mp4 output playback URLs like: `https://video.gumlet.io/{collection_id}/{asset_id}/main.mp4`
+
+### How can I show the user's email/ID in the dynamic watermark?
+
+Here are the steps to show a custom dynamic watermark:
+
+Step 1: Enable the dynamic watermark in the [Player Settings > Advanced Settings](https://dashboard.gumlet.com/video/manage?tab=edit_player).
+
+Step2: Add `watermark_text` parameter in the embed code: `https://play.gumlet.io/embed/649e698ab792a98fc2dc0791?watermark_text=ANYTEXT`
+
+Sample src: `https://play.gumlet.io/embed/[email protected]`
+
+You need some coding expertise to show a custom dynamic watermark. If you use WordPress, you can use our plugin to customize the dynamic watermark without coding expertise - [https://wordpress.org/plugins/gumlet-video/](https://wordpress.org/plugins/gumlet-video/)
+
+### How to contact customer support via email?
+
+If you want to contact support via email, you can reach our support team at [\[email protected\]](/cdn-cgi/l/email-protection#d5a6a0a5a5baa7a195b2a0b8b9b0a1fbb6bab8).
+
+### My images are not loading when I set up the Gumlet Image SDK/plugin. How to fix it?
+
+Please share the URL of the website where you set up Gumlet Image. Also, share the technology with which your website it built and how you did integration. This will help us resolve the issue faster.
+
+### How do I get Gumlet and GetResponse to work together?
+
+To integrate Gumlet with GetResponse, ensure you are using the correct embed URL format. Use the Gumlet embed URL (play.gumlet.io/embed/Gumlet\_asset\_id) instead of the share URL that starts with Gumlet.tv. This should resolve the issue with embedding videos on your GetResponse page.
+
+### Where is the property\_id as I am going to implement Gumlet player?
+
+You can set up your Property ID by following this guide: [Gumlet Insights Setup](/docs/insights-getting-started#step-1-create-property). Additionally, you can find your Property ID directly in your dashboard here: [Gumlet Analytics Properties](https://dashboard.gumlet.com/insights/properties).
+
+### Why isn't my custom domain showing up in the URLs?
+
+Custom domains can't be applied to embed and raw video URLs; they are only applicable to Share URLs.
+
+### Is there an API call to get a list of all the video titles and their HLS link in video title order?
+
+For accessing video titles and their associated HLS links via API, you can use the following API call to get a list of all video titles (without truncation) along with their associated links, sorted by title: `curl --request GET \ --url 'https://api.gumlet.com/v1/video/assets/list/collection_id?sortBy=title&orderBy=asc' \ --header 'accept: application/json'` You can also refer to our API documentation for more details: [List Assets API](/reference/list-assets).
+
+### How can I address playback issues and share my live stream for viewing in a browser?
+
+To address playback issues with m3u8 files, it's important to note that m3u8 URLs are not directly playable on non-iOS devices. To play m3u8 or HLS URLs consistently, you need to use HLS.js or a comparable player to stream HLS. For sharing your live stream for viewing in a browser, you have two options:
+
+1. Use the embed code in a webpage.
+2. Add the m3u8 URL in an HLS-compatible video player.
+3. You can also use the iframe src directly to play in the browser.
+
+### How does Gumlet's video bandwidth billing work, and how can I monitor my usage?
+
+All the plans include a monthly quota of bandwidth GBs, however, you can use more bandwidth and pay for additional bandwidth used. You can check the pricing plans [here](https://gumlet.com/pricing). To monitor video bandwidth, navigate to [Video Usage Analytics](https://dashboard.gumlet.com/video/analytics) on your account.
+
+### How to prevent AI-generated subtitles for my videos?
+
+To prevent Gumlet from automatically generating subtitles for your videos, you can disable this feature in the Gumlet Dashboard under [processing settings](/docs/processing-settings#ai-generated-subtitles). Just uncheck the option for AI-generated subtitles and save it.
+
+### Why are subtitles not being detected in my videos?
+
+If your video is musical or a song, it may not detect the correct language. If that's not the case, let us know the asset ID and our tech team will review it.
+
+### How can I ensure my videos always have a specific resolution when sharing the URL link?
+
+We use ABR (adaptive bitrate) to deliver your videos. If you want to select the highest resolution at the video startup time, you can send `start_high_res=true` as a query param in the URL. If the bandwidth available is not enough to play the playback, the player will switch to lower resolutions.
+
+### How can I remove the Gumlet logo from the player?
+
+Visit Video Library > Player settings and disable the `Powered by Gumlet` toggle and save settings. The logo will be removed from the player in that collection. This feature is only available in Growth, Business, and Enterprise plans.
+
+### Can I access APIs in the Starter plan?
+
+Yes, APIs are accessible to all paid plans in Gumlet, including the Starter plan.
+
+### How can I control the player using Javascript? E.g.- muting, changing playback speed, etc.
+
+You can use Player.js [https://github.com/gumlet/player.js](https://github.com/gumlet/player.js) for controlling the Gumlet video player using Javascript. You can mute, unmute, change playback speed, get progress, play, pause, PIP, full screen, etc. *Note: This library won't work on standalone HTML pages, you need to host it on some server.*
+
+### Does your video player support the pay-per-view model or have an integration with Stripe?
+
+Currently, we do not have pay-per-view support. You can add your feedback on [https://feedback.gumlet.com/](https://feedback.gumlet.com/) and our team will look into it.
+
+### How can I ensure that all my videos stream exclusively on my website, and what additional steps should I take after whitelisting?
+
+Enabling Access Allowed Referrers is a great first step to ensuring your videos stream exclusively on your website. After whitelisting, monitor playback analytics through Gumlet's analytics dashboard to find the pages from where the video is being streamed. You can review our video protection documentation page [here](/docs/video-protection-settings).
+
+### How can I rename a collection?
+
+You can edit a collection by visiting the following link: [https://dashboard.gumlet.com/video/collections/\[collection\_id\]](https://dashboard.gumlet.com/video/collections/%5Bcollection_id%5D). Replace \[collection\_id] with your specific collection ID. OR navigate to [https://dashboard.gumlet.com/video/collections](https://dashboard.gumlet.com/video/collections) and click on a collection to edit.
+
+### How can I ensure my videos expand to full screen in WordPress?
+
+We recommend the [WordPress Video](https://wordpress.org/plugins/gumlet-video/) plugin by Gumlet to use all the features available in our video player. For features like DRM videos, full screen, orientation, and device-specific features, this plugin is fully loaded.
+
+### My video is not castable. How do we fix the problem?
+
+If your video is DRM-protected or dynamic watermark enabled, the cast button will not be available for security reasons. At least a DASH(.mpd) or MP4 version should be generated for the player to show cast options.
+
+### How can I allow a domain for a video I embedded from Gumlet?
+
+You can visit [this link](https://dashboard.gumlet.com/video/manage?tab=video_protection) to add Access Allowed Referrers. Gumlet allows you to restrict access to your video content using the HTTP "Referrer" request header. Once you provide a list of domains here, Gumlet will only allow content access to requests having the HTTP "Referrer" request header same to one of those domains.

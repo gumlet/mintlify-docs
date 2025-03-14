@@ -14,6 +14,20 @@
         "tab": "Guides",
         "groups": [
           {
+            "group": "Video",
+            "pages": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "video/introduction",
+                  "video/quick-start-guide",
+                  "video/publish-first-video",
+                  "video/faqs"
+                ]
+              }
+            ]
+          },
+          {
             "group": "Get Started",
             "pages": [
               "introduction",
@@ -94,9 +108,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/gumlethq",
+      "github": "https://github.com/gumlet/",
+      "linkedin": "https://linkedin.com/company/gumlet/"
     }
   }
 }
