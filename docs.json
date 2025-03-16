@@ -7,7 +7,7 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "https://www.gumlet.com/favicon.svg",
   "navigation": {
     "tabs": [
       {
@@ -72,38 +72,38 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
           "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "href": "https://community.gumlet.com",
+          "icon": "discourse"
         },
         {
           "anchor": "Blog",
           "href": "https://mintlify.com/blog",
           "icon": "newspaper"
+        },
+        {
+          "anchor": "Feedback",
+          "href": "https://feedback.gumlet.com/feature-requests",
+          "icon": "book-open-cover"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "https://assets.gumlet.io/assets/logo.svg?w=640&dpr=2.0",
+    "dark": "https://assets.gumlet.io/assets/white-logo.svg?w=640&dpr=2.0"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@gumlet.com"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://dashboard.gumlet.com"
     }
   },
   "footer": {
