@@ -19,10 +19,22 @@
               {
                 "group": "Getting Started",
                 "pages": [
-                  "video/introduction",
-                  "video/quick-start-guide",
-                  "video/publish-first-video",
-                  "video/faqs"
+                  "video/get-started/introduction",
+                  "video/get-started/quick-start-guide",
+                  "video/get-started/publish-first-video",
+                  "video/get-started/faqs"
+                ]
+              },
+              {
+                "group": "Upload Videos",
+                "pages": [
+                  "video/upload/device",
+                  "video/upload/cloud-storage",
+                  "video/upload/import-object-storage",
+                  "video/upload/import-from-zoom",
+                  "video/upload/import-from-vimeo",
+                  "video/upload/import-from-wistia",
+                  "video/upload/import-from-google-drive"
                 ]
               }
             ]

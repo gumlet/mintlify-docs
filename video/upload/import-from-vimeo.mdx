@@ -1,0 +1,65 @@
+---
+title: "Import from Vimeo"
+description: "Get rid of Vimeo with this migration guide"
+---
+
+Have you been using Vimeo to host and manage your videos? We have got a quick way to import all the videos to Gumlet.
+
+Prerequisites:
+
+* An active Vimeo Standard and higher or Vimeo Pro or higher plan
+* A paid account with Gumlet (if not, you can subscribe to a plan [here](https://dashboard.gumlet.com/organization/billing?utm_source=docs\&utm_campaign=vimeo-migration))
+
+Now head over to [Import Page](https://dashboard.gumlet.com/video/import-videos). You will find Vimeo and click on connect.
+
+![Import Page](/images/docs/192879545a2a35d801778c832d3ed7a2a80c646541dea7ac6ae900326a83bcc6-Screenshot_at_Sep_23_12-25-51.png)
+
+## Authorize Vimeo Account
+
+On clicking the `Connect`button, you will be redirected to the Vimeo Authorization page, where you need to click on `Allow` button.
+
+## Final Steps to Import
+
+Once the token is verified, you can preview which folders and videos are there to import.
+
+![Select files and folders to import](/images/docs/69825671da9cab6dd6128cc42809eeb10126f5454143b7fc947a8a6307e8044c-Screenshot_2024-09-23_at_2.22.35_PM.png)
+
+### Select a Profile
+
+Select a profile to process your imported videos. All the files will be imported and processed automatically based on the selected Video Profile.
+
+### Select a Destination
+
+The destination is where all your imported videos will be stored. This is the same as the collection. Select a collection from the list, and we will process and keep your videos in the selected collection.
+
+### Select Files & Folders
+
+Select files and folders that you want to import to Gumlet. We will automatically create folders and move files to corresponding folders.
+
+Clicking the **Import Videos** button will start the Import.
+
+<Frame caption="Import Progress">
+  <img src="/images/docs/21c4855517e8d6180b0b0c6bf601a40de24c888c4ee20e55f007764496810874-Screenshot_2024-09-23_at_2.23.39_PM.png" />
+</Frame>
+
+Sit back and relax. We will do all the heavy work to import and process videos for you.
+
+You will find all your Imported Videos in the selected collection.
+
+## Update Embed Code
+
+All your videos are imported to Gumlet. If you use Vimeo Embeds, you must replace your URL prefix with a Gumlet prefix to support the same URL structure to play your videos directly.
+
+The Vimeo Embed URL looks like `https://player.vimeo.com/video/831802811`
+
+Replace `https://player.vimeo.com/video` with `https://vimeo.gumlet.io/embed`
+
+Your new URL will be like `https://vimeo.gumlet.io/embed/831802811`
+
+Happy Streaming.
+
+<Warning>
+  Vimeo doesn not allow us to download videos via API for free plan users.
+
+  ![](/images/docs/085a3fde726fb304f7c7ff1a9342dcd3454eed79c5acc984dc87f3bdca6d26c0-Screenshot_2024-11-26_at_6.20.46_AM.png)
+</Warning>

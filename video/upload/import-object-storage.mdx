@@ -1,0 +1,45 @@
+---
+title: "Import from Object Storage"
+description: "Upload files to Gumlet from different storage providers"
+---
+
+We support storage providers from where we can fetch your original video to process and stream.
+
+<Frame caption="Collection Origin Configuration">
+  <img src="/images/docs/f8cd9ba-Screenshot_2024-04-02_at_12.35.14_PM.png" />
+</Frame>
+
+You can select a provider of your choice and configure the credentials.
+
+### Amazon S3 Bucket
+
+Gumlet needs `GetObject` and `ListBucket` permissions to access the videos. Create and add an access token with these permissions while creating the collection.
+
+### Digital Ocean Spaces
+
+You can import videos stored in DigitalOcean Spaces as a video source. Create a new access token as described in [this article](https://www.digitalocean.com/community/tutorials/how-to-create-a-digitalocean-space-and-api-key) and create a collection with these credentials.
+
+### Wasabi Storage
+
+Gumlet supports fetching videos from [Wasabi storage](https://wasabi.com/). Configure the storage similar to Amazon S3 with the same permission for Wasabi Storage.
+
+### Google Cloud Storage
+
+Use videos stored in [Google Cloud Storage](https://cloud.google.com/storage) bucket as a source. Gumlet needs read bucket and list object permissions to access the videos. Please create a service account with those permissions, create a JSON key, and add that key while creating a collection. You can find a tutorial at [Create and manage service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
+
+### Azure
+
+Gumlet supports fetching videos from [Azure cloud storage](https://azure.microsoft.com/en-us/product-categories/storage/). Create a [storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) and a container inside your storage. Gumlet needs SAS(Shared access tokens) token for accessing content. You can create a new SAS token as described in [this article](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/document-translation/create-sas-tokens?tabs=Containers).
+
+### Linode Storage
+
+Gumlet supports fetching videos from [Linode storage](https://www.linode.com/products/object-storage/). Configure the storage similar to Amazon S3 with the same permission for Linode Storage.
+
+### Backblaze storage
+
+Gumlet supports fetching videos from [Backblaze storage](https://www.backblaze.com/b2/cloud-storage.html). Configure the storage similar to Amazon S3 with the same permission for Wasabi Storage.
+
+### Zoom Recordings
+
+Bring your Zoom cloud recordings to Gumlet. You need to make a custom app for bringing new recordings automatically to Gumlet. Here is the tutorial on setting up [Zoom Import](/docs/import-from-zoom).
+

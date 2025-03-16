@@ -1,0 +1,52 @@
+---
+title: "Import Zoom Recordings"
+description: "Import Zoom cloud recordings automatically to Gumlet"
+---
+
+Add Zoom as a source in your collection. All the new recordings will be optimized and added to your collection.
+
+### Create a Zoom source
+
+Navigate to the [create collection](https://dashboard.gumlet.com/video/collections/add) page and select Zoom as the Origin Type.
+
+![](/images/docs/1ec14bc-Screenshot_2023-06-05_at_2.49.41_PM.png)
+
+### Generate a Secret Token
+
+You need to generate a secret token from your Zoom account. Here is the step-wise guide to generate a secret token in your Zoom account and get recordings whenever finished.
+
+#### Create a Zoom App
+
+Go to the [Zoom App Creation](https://marketplace.zoom.us/develop/create) page and create a **Webhook Only** app.
+
+![Zoom App](/images/docs/4f9f29e-Screenshot_2023-06-05_at_2.56.59_PM.png)
+
+Once you fill in the important details for the app, you need to set up permissions to send events to Gumlet.
+
+<Frame caption="Enable Event Subscriptions">
+  <img src="/images/docs/ecb72ae-Screenshot_2023-06-06_at_11.43.10_AM.png" />
+</Frame>
+
+Copy the Secret Token from the above screen and add it to the Collection settings in Gumlet [here](/docs/zoom-recordings-as-source#create-zoom-source).
+
+#### Subscribe to Recordings Completed Event
+
+Click on the **Add Event Subscription** button and add the endpoint URL as `https://api.gumlet.com/v1/video/assets/zoom/event/{collection_id}`, replace `{collection_id}` with the actual collection ID from your [dashboard](https://dashboard.gumlet.com/video/collections).
+
+<Frame caption="Add webhook URL">
+  <img src="/images/docs/eb4e273-Screenshot_2023-06-06_at_11.54.27_AM.png" />
+</Frame>
+
+Click the **Validate** button to confirm the URL is correct.
+
+Click the **Add Events** button to select the required event to share the recording information with Gumlet.
+
+<Frame caption="Select All Recordings Completed">
+  <img src="/images/docs/b47cfc2-Screenshot_2023-06-06_at_11.55.41_AM.png" />
+</Frame>
+
+Save the settings and **Continue**. Your app is activated now. All new recordings will now be processed to Gumlet automatically.
+
+![](/images/docs/e9daea1-Screenshot_2023-06-06_at_11.59.23_AM.png)
+
+Note: You need to have a paid Zoom account for this feature to work. The cloud recordings are available only to paid members.
