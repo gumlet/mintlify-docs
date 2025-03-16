@@ -1,0 +1,124 @@
+---
+title: "Player Customization"
+description: "All you need to make your player"
+---
+
+We know how important it is to have a video player tailored to your needs. Gumlet's video player can be customized to match your brand.
+
+You can configure all the settings related to the player in one place.
+
+## Basic Settings
+
+![](/images/docs/8dca1c1ad29d5d9e32441ae660d087201b6df790cb8e20f3d17dd873ac4b17f9-Screenshot_2025-02-26_at_5.52.40_PM.png)
+
+### Preload
+
+The preload will load the video when the page is loaded (wherever the video is embedded). By default, we enable the preload setting to remove the load time for users when played.
+
+### Autoplay
+
+The autoplay, when enabled, will play the video when the page is loaded. By default, we disable this setting. *Note: The audio will be muted across all browsers and devices.*
+
+### Loop
+
+When enabled, your video will play in auto-loop mode.
+
+### Enable Download
+
+When enabled, it will show a button on the player for your users to download the video.
+
+*Note: The download button will only appear if the video is processed with the MP4 version enabled.*
+
+### Show Title
+
+Display video title on embedded videos. This is good for your visitors to get context.
+
+### Allow Cast
+
+Let your audience cast and watch your content on large screens. We support Apple Airplay and Google Chromecast. *Note: Not available for DRM, Dynamic Watermark, and only HLS videos (DASH or MP4 is required).*
+
+## Advanced Settings
+
+![](/images/docs/b855003a3d6d0a1692c6555e2d4454f3f4818b20cef8fc5407bde9eb37fb79fe-Screenshot_2024-09-16_at_5.49.07_PM.png)
+
+### Disable seek bar
+
+Enable this to disable the seeking on your videos. This setting is helpful for educational and training use cases where the institute/organization doesn't want users to skip content.
+
+### Disable Player Controls
+
+Remove all the controls from your player and let your audience focus on the video content.
+
+### Show Captions Automatically
+
+Show captions automatically on the player. The users can still hide it inside the player and choose a language they want.
+
+### Dynamic Watermark
+
+When enabled, we add a moving watermark directly to your videos. You will see moving text with user IPs when you embed the videos. The dynamic watermark adds another level of security to your video.
+
+You can configure the watermark style and text:
+
+* text color
+* text size
+* background-color
+* frequency
+* watermark\_text: you need to send it dynamically in the iframe source
+  * `Sample iframe source: https://play.gumlet.io/embed/[email protected], some_id` you can embed using `watermark_text` query param.
+
+*Below is a sample video with the dynamic watermark*:
+
+The embed code for the above sample video:
+
+```
+<div style="position:relative;aspect-ratio:16/9;">
+      <iframe 
+            loading="lazy" title="Gumlet video player"
+            src="https://play.gumlet.io/embed/[email protected], some_id"
+            style="border:none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
+      </iframe>
+</div>
+```
+
+*Note: It will only work where you add the Embed code. It won't work for mp4, m3u8, and mpd URLs.*
+
+## Player Branding
+
+### Logo URL
+
+This parameter takes the image URL as input. It overlays the image fetched over the player.
+
+### Logo Position
+
+The overlay image can be modified with the Logo position parameter.
+
+### Logo Width & Height (in px)
+
+Change the size of the logo added. Add height and width of the logo in pixels.
+
+<Frame caption="The logo on the top-left">
+  <img src="/images/docs/ed241de-Screenshot_2024-04-12_at_3.08.38_PM.png" />
+</Frame>
+
+## Advertising & Monetization
+
+![](/images/docs/94a86ba-Screenshot_2024-04-12_at_3.09.50_PM.png)
+
+### VAST Tag
+
+The VAST tag takes the URL as input. Our player will automatically play ads defined in this VAST tag during playback.
+
+Gumlet player also supports Google's IMA SDK. You can inject ads in between video playback.
+
+### Facebook Pixel ID
+
+Add FB pixel ID to track video engagement and create a look-alike audience for better targeting. To get your pixel ID or create a new one, navigate to [how to get FB Pixel ID](https://www.facebook.com/business/help/952192354843755).
+
+### Google Tag ID
+
+Add Google Analytics (GA4) ID to track video engagement and create a look-alike audience for better targeting. To get your gtag ID or create a new one, navigate to [how to get GA4 ID](https://support.google.com/analytics/answer/12270356).
+
+<Info>
+If your video is public and embedded, it will have SEO metadata added to your page.
+</Info>

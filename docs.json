@@ -36,7 +36,20 @@
                   "video/upload/import-from-wistia",
                   "video/upload/import-from-google-drive"
                 ]
-              }
+              },
+              {
+                "group": "Manage Videos",
+                "pages": [
+                  "video/manage/overview",
+                  "video/manage/library",
+                  "video/manage/processing-settings",
+                  "video/manage/protection-settings",
+                  "video/manage/video-settings",
+                  "video/manage/engagement-tools",
+                  "video/manage/analytics"
+                ]
+              },
+              "video/player-customization"
             ]
           },
           {

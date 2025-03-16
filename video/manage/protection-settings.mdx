@@ -1,0 +1,148 @@
+---
+title: "Video Protection"
+description: "Protect your videos using expiry URLs, geo-blocking, and whitelisted websites"
+---
+
+Gumlet provides multiple options for securing your video playback. Your video playback URLs are public by default, meaning they can be played and published anywhere. If this is not what you want, you can use one/multiple playback URL security options provided by Gumlet.
+
+Gumlet's video protection works well with collections. All the videos inside collections will follow the security protocols configured at the collection level. The security settings are available in your collection settings.
+
+<Frame caption="Secure video playback on the collection level.">
+  <img src="/images/docs/9c8e38f-Screenshot_2024-04-12_at_4.58.00_PM.png" />
+</Frame>
+
+## Available Video Playback Security Options
+
+### 1. Signed URL
+
+When enabled, this option will provide a 16-byte hexadecimal secret key to generate a secure token and expiration timestamp (Expiration time should be at least the duration of the Video Asset or the expected period). Video playback URLs under the video collection will only be accessible with correctly generated tokens by the secret key and under the expiration time. When the signed URL expires, the URL will no longer be playable, even if playback has already started. The code snippets are to convert the ordinary Gumlet playback URL to a signed URL.
+
+<CodeGroup>
+  ```javascript javascript
+  var crypto = require('crypto');
+
+  // Gumlet Video Playback URL
+  var playBackUrl = "https://video.gumlet.io/5f462c1561cf8a766464ffc4/6192269e0822a81d955d1a4b/main.m3u8";
+
+  // Secret key provided by Gumlet
+  var secret = "GNCP2ePfmdV3bHKqbiBAlXQXHKmI9+DZfLVptsvgUU4=";
+
+  secret = Buffer.from(secret, 'base64');
+
+  // expiration time in seconds
+  var tokenlifetime = 3600;
+
+  var expiration = Math.round(Date.now()/1000 + tokenlifetime);
+
+  var stringForTokenGeneration = playBackUrl.slice(23) + String(expiration);
+
+  var signature = crypto.createHmac('sha1', secret).update(stringForTokenGeneration).digest('hex');
+
+  console.log(`Token: ${signature}`);
+
+  console.log(`Signed Playback URL: ${playBackUrl}?token=${signature}&expires=${expiration}`);
+  ```
+
+  ```python python
+  import hmac
+  from hashlib import sha1
+  from base64 import b64decode
+  from datetime import datetime, timedelta
+
+  # Gumlet Video Playback URL
+  playback_url = "https://video.gumlet.io/5f462c1561cf8a766464ffc4/6192269e0822a81d955d1a4b/1.m3u8"
+
+  # Secret key provided by Gumlet
+  secret = b"GNCP2ePfmdV3bHKqbiBAlXQXHKmI9+DZfLVptsvgUU4="
+  secret = b64decode(secret)
+
+  # expiration time in seconds
+  token_life_time = 3600;
+  expiration = datetime.now() + timedelta(seconds=token_life_time)
+  expiration = int(expiration.timestamp())
+
+  string_for_token_generation = playback_url[23:] + str(expiration)
+  string_for_token_generation = str.encode(string_for_token_generation)
+
+  signature = hmac.HMAC(secret, string_for_token_generation, sha1).digest().hex()
+
+  print("Token: {}".format(signature))
+
+  print("Signed Playback URL: {}?token={}&expires={}".format(playback_url, signature, expiration))
+  ```
+
+  ```ruby ruby
+  require 'base64'
+  require 'openssl'
+
+  # Gumlet Video Playback URL
+  playback_url = "https://video.gumlet.io/5f462c1561cf8a766464ffc4/6192269e0822a81d955d1a4b/1.m3u8"
+
+  # Secret key provided by Gumlet
+  secret = "GNCP2ePfmdV3bHKqbiBAlXQXHKmI9+DZfLVptsvgUU4="
+  secret = Base64.decode64(secret)
+
+  # expiration time in seconds
+  token_life_time = 3600
+  expiration = Time.now.to_i + token_life_time
+
+  string_for_token_generation = playback_url.slice(23, playback_url.length) + expiration.to_s
+
+  signature = OpenSSL::HMAC.hexdigest('sha1', secret, string_for_token_generation)
+
+  puts "Token: " + signature
+
+  puts "Signed Playback URL: " + playback_url + "?token=" + signature + "&expires=" + expiration
+  ```
+</CodeGroup>
+
+### 2. Whitelist Refererres
+
+The Referer HTTP request header contains the page's absolute or partial address that makes the request. The Referer header allows a server to identify a page from which people visit it. With allowed referer settings, you can ensure that your video is only accessible from a specific server/host. You can specify multiple referrers using which you want your video to be accessible.
+
+#### How to Whitelist an Android app?
+
+To allow Gumlet to whitelist your Android app, add the app bundle name to the whitelist referrers input box. You can get the bundle ID from your developer or the app's URL on the Google Play store.
+
+![](/images/docs/68db013496caa6e6bc82a57798ced4e4b3f08b5cd055183ed5f2c5025858298a-Screenshot_at_Oct_25_12-26-45.png)
+
+For example - if the app URL is [https://play.google.com/store/apps/details?id=com.google.android.calendar](https://play.google.com/store/apps/details?id=com.google.android.calendar), the bundle ID would be `com.google.android.calendar`. Get the `id` parameter from the app URL.
+
+#### How to Whitelist an iOS app?
+
+To allow Gumlet to whitelist your iOS app, add the app bundle name to the whitelist referrers input box. You can get the bundle ID from your developer or follow the steps below.
+
+![](/images/docs/00884cc32167586d7cb77b1f04247fd849d2b6026dc114294b32bed8d97efe6b-Screenshot_at_Oct_25_12-35-58.png)
+
+For example - if the app URL is `https://apps.apple.com/us/app/whatsapp-messenger/id310633997`, copy the ID from the URL after the `/id`, i.e. the numeric part. Navigate to [https://itunes.apple.com/lookup?id=\{copied\_id}](https://itunes.apple.com/lookup?id=%7Bcopied_id%7D), sample URL - [https://itunes.apple.com/lookup?id=310633997](https://itunes.apple.com/lookup?id=310633997). It will download a text file.
+
+Open the text and copy the bundle ID as shown in the screenshot below:
+
+![](/images/docs/cf8f05d0b028d444193ee81aa4c13b53e82d1d2b390d3c92c33a7fc687893c9a-Screenshot_at_Oct_25_12-38-49.png)
+
+<Warning>
+  Sample header: `headers: { 'x-requested-with': "net.whatsapp.WhatsApp"}`
+</Warning>
+
+<Info />
+
+### 3. Video Privacy
+
+Mark your videos public, or private, or add a password to them.
+
+##### Public
+
+The public status represents that videos are publicly playable and can be indexed by search engines.
+
+##### Unlisted
+
+These videos are unlisted. These are available only when the link is shared.
+
+##### Private
+
+The private videos play only inside the Gumlet dashboard. To share these videos, change the privacy settings.
+
+##### Password-Protected
+
+Add a password to your videos to make them bulletproof. The embedded videos also require a password to play.
+

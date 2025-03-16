@@ -1,0 +1,108 @@
+---
+title: "Processing Settings"
+description: "Choose the right processing settings for your videos"
+---
+
+The video profiles are video processing templates. We create a default profile when you create a new [video collection](/docs/edit-collection). However, you can choose a different profile for your collection.
+
+<Frame caption="Processing settings">
+  <img src="/images/docs/371a4cec66a391815737925a0d919e167352ccc066aca887651425235bbd1b82-Screenshot_2024-08-22_at_3.01.56_PM.png" />
+</Frame>
+
+## Supported Output Format
+
+We support the following video formats. You can deliver your video with any of them.
+
+### ABR
+
+Adaptive-Bitrate output format lets you generate ABR streams from Gumlet. Gumlet automatically makes DASH and HLS streams available, so you always have them handy whenever needed.
+
+#### HLS
+
+[HTTP Live Streaming](https://developer.apple.com/streaming/) (also known as **HLS**) is an HTTP-based adaptive bitrate streaming communications protocol developed by Apple Inc. Support for the protocol is widespread in media players, web browsers, mobile devices, and streaming media servers. **Gumlet also recommends using this format** for seamless video delivery and playback.
+
+HTTP Live Streaming allows video players to adapt to unpredictable network conditions without causing user-visible playback stalling. For example, on an unreliable wireless network, HLS allows the player to play a lower-quality video, thus reducing bandwidth usage.
+
+Any modern video player can play an HLS stream produced by Gumlet. Most web players, iOS, and Android devices support HLS playback. It's the best choice for universal playback.
+
+#### MPEG-DASH
+
+**Dynamic Adaptive Streaming over HTTP** (**DASH**), also known as **MPEG-DASH**, is an adaptive bitrate streaming technique that enables high-quality streaming of media content over the Internet delivered from conventional HTTP web servers. Similar to HLS.
+
+DASH is not supported in Apple products like iOS and Safari. This makes the HLS the perfect choice as a universally supported streaming standard.
+
+### MP4
+
+**MPEG-4 Part 14** or **MP4** is a digital multimedia container format most commonly used to store video and audio. It allows streaming over the Internet. The most widely supported format requires no extra player or javascript.
+
+The downside of MP4 is that adaptive bitrate streaming is not supported; hence there will be subpar user experience and high data transfers.
+
+Note - the playback URL will be `.mp4` file.
+
+## MP4 Version
+
+If you allow your users to download videos for offline viewing, generating an MP4 version of the video helps. When you enable this option, we add an MP4 stream in the output, which can be used to download the video for offline viewing.
+
+## DRM
+
+You can Enable DRM in processing settings.
+
+![](/images/docs/bb76632-Screenshot_2024-08-20_at_4.34.39_PM.png)
+
+After you enable it, you can process a new video using this profile and that video will be DRM-encrypted.
+
+## AI-generated Subtitles
+
+![](/images/docs/108a663-Screenshot_2024-08-20_at_4.34.01_PM.png)
+
+Gumlet can automatically generate subtitles from the speech in the video file. Once you set this configuration in the video profiles, your processed videos will have subtitles.
+
+We use state-of-the-art voice-to-text machine-learning methods to convert audio into text. Once those texts are generated, we generate the required manifest files to display subtitles in HLS or DASH streams.
+
+#### Generate subtitles
+
+We need an additional languages list to generate subtitles automatically:
+
+* Output subtitle language(s)
+
+You can generate up to 4 subtitles for a given video. To generate subtitles, go to the **Subtitles** section in the processing settings.
+
+<Info />
+
+## Per-title Encoding
+
+Gumlet analyzes each input video on a wide range of visual aspects. Based on the analysis, it chooses a unique set of transcoding options for processing the video. This ensures that the output video is the most miniature size and best quality. We recommend enabling it.
+
+<Info />
+
+![](/images/docs/5a09bf2f4fc9b11915019a547d3ee740b983ae2484a6c26b078851a2c08b12ab-Screenshot_2024-08-22_at_3.02.59_PM.png)
+
+### Video codecs
+
+Gumlet supports H264 (AVC) and H265 (HEVC) as output video codecs. If you select both, Gumlet will output dual-codec HLS and DASH streams. Those devices supporting H265 will automatically pick it, and those that don't support it will resolve to H264.
+
+### Resolutions
+
+If you have selected `ABR` as output, you can select resolutions from 240p to 4k that you want to generate.
+
+### Trimming Settings
+
+Trim videos while processing from start or end. This parameter allows you to configure auto-trimming for all the videos.
+
+### Crop Settings
+
+Crop videos while processing horizontally or vertically. This parameter allows you to configure auto-cropping for all the videos.
+
+### Overlay & Padding
+
+#### Image Overlay
+
+Add Image Overlays to your videos, and customize the size and position. The image will be added to your videos. **Tip**: Add a watermark or logo to your videos with this config.
+
+#### Text Overlay
+
+Text overlay allows setting any text as an overlay on the video. Font size, color, font face, and position can be customized to suit your needs.
+
+#### Padding
+
+Padding allows you to add padded space around your videos. You can also choose padding color, padding size, and the place where you want to apply padding.
