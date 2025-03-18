@@ -7,7 +7,7 @@
     "light": "#818cf8",
     "dark": "#6366f1"
   },
-  "favicon": "https://www.gumlet.com/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
